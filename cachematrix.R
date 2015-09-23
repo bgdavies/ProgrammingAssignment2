@@ -1,5 +1,10 @@
 ## Creates an object that stores a
 ## matrix and its inverse
+##
+## Usage:
+##   makeCacheMatrix(x): create cacheMatrix from x
+##   set(y)/get(): set/get matrix
+##   setInverse(inverse)/getInverse(): set/get inverse
 
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
@@ -19,10 +24,14 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Returns the inverse of cacheMatrix x
 ## created by makeCacheMatrix
 ##
-## If cached inverse exists, return it,
-## otherwise, compute inverse and cache it
+## Usage:
+##   cacheSolve(x): get inverse of cacheMatrix x
 
 cacheSolve <- function(x, ...) {
+
+## If cached inverse exists, return it,
+## otherwise, compute inverse, cache it, return it
+
     inv <- x$getInverse()
     if(!is.null(inv)) {
         message("Using cached inverse")
